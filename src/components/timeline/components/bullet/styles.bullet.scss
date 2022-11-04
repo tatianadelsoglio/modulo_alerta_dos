@@ -1,0 +1,27 @@
+@import '../../../../scss/variables';
+.bullet p {
+	line-height: 10px;
+}
+
+span.detailItem {
+	font-weight: 500;
+	margin-right: 5px;
+
+	// color: red;
+}
+
+span.strikeThrough {
+	text-decoration: line-through;
+	color: $light-gray;
+	margin-right: 5px;
+}
+
+span.modifiedItem {
+	margin-left: 5px;
+}
+span.middleDot {
+	font-size: 1.3rem;
+	font-weight: 500;
+	line-height: 0;
+	color: $light-gray;
+}

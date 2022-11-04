@@ -1,0 +1,41 @@
+.top-panel {
+	&-wrapper {
+		padding: 15px 10px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+}
+
+.view-board {
+	transform: rotate(90deg);
+}
+
+.top-panel-filters {
+	display: flex;
+	align-items: center;
+}
+
+.filter-data {
+	margin-right: 10px;
+}
+.cotizaciones {
+	p {
+		margin-bottom: 5px;
+		border-bottom: 1px dotted rgb(233, 233, 233);
+		padding: 3px 0;
+	}
+}
+.cotizacion {
+	font-weight: 700;
+	color: #333;
+}
+
+.info_data {
+	font-size: 0.8rem;
+	color: rgb(196, 196, 196);
+	max-width: 200px;
+}
+.skeleton_app {
+	height: 31.989px;
+}

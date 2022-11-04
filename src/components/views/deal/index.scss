@@ -1,0 +1,81 @@
+@import '../../../scss/variables';
+.action_wrapper {
+	background: white;
+	padding: 0 24px 20px 24px;
+}
+.deal_wrapper {
+	width: 100%;
+	overflow: hidden;
+}
+.timeline_wrapper {
+	padding: 1rem;
+}
+
+.timeline-clock-icon {
+	color: $primary-color;
+	padding: 5px;
+	margin: 0 5px;
+	// background-color: $color-scrollBar;
+	border-radius: 50%;
+	font-size: 20px;
+	box-shadow: none;
+	transition: all 300ms ease-in-out;
+	border: 1px solid transparent;
+}
+
+.timeline-clock-icon:hover {
+	box-shadow: $box-shadow;
+	cursor: pointer;
+	border: 1px solid $primary-color;
+}
+
+.timeline_date {
+	font-style: italic;
+	color: $primary-color;
+}
+
+.timeline_date::before {
+	content: ' | ';
+}
+.timeline_dot_primary {
+	background: $primary-color;
+}
+
+.ant-timeline-item-head-blue {
+	color: #00b33c;
+	border-color: #00b33c;
+}
+
+// .ant-timeline-item-tail {
+// 	border: 1px rgb(236, 236, 236) dashed !important;
+// }
+.add {
+	position: absolute;
+	bottom: 2rem;
+	right: 2rem;
+	z-index: 1;
+}
+.action_wrapper {
+	position: relative;
+}
+.progress_info,
+.progress_info-tasks {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.progress_info-tasks {
+	margin-top: 10px;
+}
+.shared_users_wrapper {
+	display: flex;
+	align-items: center;
+}
+
+.item_wrapper {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+}

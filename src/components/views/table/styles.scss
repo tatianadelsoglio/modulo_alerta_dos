@@ -1,0 +1,44 @@
+.view-wrapper {
+	padding: 0.5rem;
+	max-width: 100vw;
+}
+.active {
+	background: none !important;
+}
+.noSelect {
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Safari */
+	-khtml-user-select: none; /* Konqueror HTML */
+	-moz-user-select: none; /* Old versions of Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none;
+}
+.subjec_wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+.tags_table_wrapper {
+	display: flex;
+	margin-left: 21px;
+	.tag_table_item {
+		display: inline-block;
+		width: 12px;
+		height: 4px;
+		border-radius: 4px;
+		margin-right: 4px;
+		background: rgb(219, 219, 219);
+	}
+	.tag {
+		min-height: 5px;
+		font-size: 0.9rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		display: inline-block;
+		background: red;
+
+		min-width: 20px;
+		margin-right: 3px;
+		border-radius: 4px;
+	}
+}

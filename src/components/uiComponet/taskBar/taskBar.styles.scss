@@ -1,0 +1,45 @@
+.task_bar_container {
+	display: flex;
+	flex-direction: column;
+}
+.task_bar_wrapper {
+	margin-top: 10px;
+	background: transparent;
+	display: flex;
+	align-items: center;
+	padding: 0;
+	flex-direction: row !important;
+	height: 8px;
+	border: none;
+	overflow: hidden;
+	height: 10px;
+	border-radius: 10px;
+}
+
+.bar {
+	width: 20%;
+	height: 8px;
+	display: inline-block;
+}
+
+.task_bar_reference_wrapper {
+	margin-top: 15px;
+	margin-bottom: 15px;
+	width: 100%;
+	display: flex;
+	align-items: flex-start;
+	flex-direction: column;
+	.task_bar_reference_item {
+		display: flex;
+		align-items: center;
+	}
+	.item {
+		margin-right: 15px;
+		line-height: 20px;
+	}
+	.reference {
+		width: 10px;
+		height: 10px;
+		margin-right: 5px;
+	}
+}

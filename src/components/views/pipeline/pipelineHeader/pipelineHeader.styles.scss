@@ -1,0 +1,43 @@
+.card-header-wrapper {
+	background: #f5f5f5;
+	display: flex;
+	margin-bottom: 0.2rem;
+}
+
+.card-header {
+	font-family: 'Open Sans', Tahoma, Geneva, Verdana, sans-serif;
+	font-size: 14px;
+	font-weight: 600;
+	display: flex;
+	height: 55px;
+	// width: 300px;
+	justify-content: center;
+	flex-direction: column;
+	align-items: flex-start;
+
+	background-size: contain;
+	background-position-x: right;
+	background-position-y: center;
+	background-repeat: no-repeat;
+	color: rgb(41, 41, 41);
+	padding: 15px;
+	max-height: 55px;
+}
+.card-header-wrapper .card-header:not(:last-child) {
+	background-image: url('../../../../assets/arrow_right.svg');
+}
+.ant-skeleton-content .ant-skeleton-title {
+	width: 75% !important;
+	height: 16px;
+	margin-top: 16px;
+	background: #f2f2f2;
+	margin: 0 !important;
+}
+
+.ant-skeleton {
+	display: flex !important;
+	height: 14px;
+	/* display: table; */
+	width: 100%;
+	margin-top: 5px;
+}
