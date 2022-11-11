@@ -97,8 +97,6 @@ const Deal = () => {
   const lastSlashPosition = parsed.negId;
   const idNegocioURL = Number(lastSlashPosition);
 
-  
-  console.log("idNegocioURL: ",idNegocioURL);
 
   const { data: negocio } = useQuery(GET_NEGOCIO_POR_ID, {
     variables: { idNegocio: idNegocioURL },

@@ -211,7 +211,6 @@ const App = () => {
 
 
     setIdUser(idUserURL);
-    console.log("idUser ",idUser);
 
     getGrupo({ variables: { idUsuario: idUserURL } });
 
