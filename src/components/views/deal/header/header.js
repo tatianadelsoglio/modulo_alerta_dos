@@ -240,7 +240,7 @@ const Header = ({ history, tags, stateGonzalo }) => {
                     </Button>
                   </div>
                 )}
-                {history.location.state && (
+                {/* {history.location.state && ( */}
                   <div className="filtros">
                     <Button
                       type="ghost"
@@ -250,7 +250,7 @@ const Header = ({ history, tags, stateGonzalo }) => {
                       <LeftOutlined /> <span>Volver</span>
                     </Button>
                   </div>
-                )}
+                {/* )} */}
               </div>
 
               <div className="tags_deal_wrapper">

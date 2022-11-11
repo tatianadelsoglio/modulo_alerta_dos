@@ -41,6 +41,7 @@ import "./index.scss";
 import TaskBar from "../../uiComponet/taskBar";
 import SharedUsers from "./sharedUsers/sharedUsers";
 import { useRouter } from "../../../hook/useRouter";
+import queryString from "query-string";
 
 const Deal = () => {
   // Copy timeline
@@ -85,9 +86,19 @@ const Deal = () => {
 
   const { setDrawerName, showDrawer } = useContext(DrawerContext);
 
-  const url = window.location.pathname;
-  const lastSlashPosition = url.lastIndexOf("/");
-  const idNegocioURL = Number(url.slice(lastSlashPosition + 1));
+  //*original
+  // const url = window.location.pathname;
+  // const lastSlashPosition = url.lastIndexOf("/");
+  // const idNegocioURL = Number(url.slice(lastSlashPosition + 1));
+
+  //const url = window.location;
+  const url = window.location.search;
+  const parsed = queryString.parse(url);
+  const lastSlashPosition = parsed.negId;
+  const idNegocioURL = Number(lastSlashPosition);
+
+  
+  console.log("idNegocioURL: ",idNegocioURL);
 
   const { data: negocio } = useQuery(GET_NEGOCIO_POR_ID, {
     variables: { idNegocio: idNegocioURL },

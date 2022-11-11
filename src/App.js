@@ -18,6 +18,7 @@ import { UPDATE_ETAPA_POR_NEGOCIO } from "./Graphql/mutations/etapas";
 import { NEW_HISTORIAL_NEGOCIO } from "./Graphql/mutations/historial";
 import { GET_EMBUDOS } from "./Graphql/queries/embudos";
 import "./less/antd.less";
+import queryString from "query-string";
 
 import Graphics from "./components/views/graphics";
 import {
@@ -197,11 +198,21 @@ const App = () => {
   }, [x]);
 
   useEffect(() => {
+
+    //*original
+    // const url = window.location.search;   
+    // const equalPosition = url.lastIndexOf("=");    
+    // const idUserURL = Number(url.slice(equalPosition + 1));
+
     const url = window.location.search;
-    const equalPosition = url.lastIndexOf("=");
-    const idUserURL = Number(url.slice(equalPosition + 1));
+    const parsed = queryString.parse(url);   
+    const equalPosition = parsed.userId;    
+    const idUserURL = Number( equalPosition);
+
 
     setIdUser(idUserURL);
+    console.log("idUser ",idUser);
+
     getGrupo({ variables: { idUsuario: idUserURL } });
 
     if (getEmbudos && idPipeline === null) {
@@ -527,7 +538,7 @@ const App = () => {
                     <Route path={`/table`}>
                       <ViewTable setHistory={setHistory} />
                     </Route> */}
-                    <Route path="/deal">
+                    <Route path="/">
                       <Deal
                         cards={cards}
                         history={history}
