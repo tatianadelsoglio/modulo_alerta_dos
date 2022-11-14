@@ -49,6 +49,7 @@ const Deal = () => {
   const [notes, setNotes] = useState([]);
   const [tasks, setTasks] = useState([]);
   const [tags, setTags] = useState([]);
+  //const [idNegocioURL, setIdNegocioURL] = useState('')
   // const [usuarios, setUsuarios] = useState([]);
   const [AnchorTasks, setAnchorTasks] = useState([]);
   const [AnchorNotes, setAnchorNotes] = useState([]);
@@ -96,6 +97,8 @@ const Deal = () => {
   const parsed = queryString.parse(url);
   const lastSlashPosition = parsed.negId;
   const idNegocioURL = Number(lastSlashPosition);
+  //setIdNegocioURL(Number(lastSlashPosition));
+  setNegId(idNegocioURL);
 
 
   const { data: negocio } = useQuery(GET_NEGOCIO_POR_ID, {
@@ -178,6 +181,8 @@ const Deal = () => {
       setProducts([]);
       const dataResult = JSON.parse(negocio.getNegocioByIdResolver);
       setStateGonzalo(dataResult.dataNeg);
+
+
 
       setDeal(dataResult.dataNeg);
       setSharedUsers(dataResult.dataUsu);
