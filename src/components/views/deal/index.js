@@ -45,7 +45,6 @@ import queryString from "query-string";
 
 const Deal = () => {
   // Copy timeline
-
   const [notes, setNotes] = useState([]);
   const [tasks, setTasks] = useState([]);
   const [tags, setTags] = useState([]);
