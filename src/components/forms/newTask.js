@@ -30,11 +30,13 @@ import { DrawerContext } from "../context/DrawContext";
 import { NoteContext } from "../context/NoteContext";
 import Note from "../timeline/components/note/note";
 import { GET_USUARIO } from "../../Graphql/queries/usuario";
+import { GET_ORIGENES } from "../../Graphql/queries/origenes";
 
 const NewTask = ({ edit }) => {
   const [dateFrom, setDateFrom] = useState("");
   const [timeFrom, settimeFrom] = useState("");
   const [priority, setPriority] = useState(1);
+  const [origenes, setOrigenes] = useState([]);
   const [form] = Form.useForm();
   const { Option } = Select;
   const [notification, setNotification] = useState(false);
@@ -53,6 +55,7 @@ const NewTask = ({ edit }) => {
   const { data, loading } = useQuery(GET_TIPO_TAREA, {
     variables: { idCategoria: 1 },
   });
+  const { data: dataOrigenes } = useQuery(GET_ORIGENES);
   const [contactos, setContactos] = useState([]);
   const [usuarios, setUsuarios] = useState([]);
   const getUsuarios = useQuery(GET_USUARIO, {
@@ -119,6 +122,9 @@ const NewTask = ({ edit }) => {
     if (getUsuarios.data) {
       const { getUsuariosResolver } = getUsuarios.data;
       setUsuarios(getUsuariosResolver);
+    }
+    if (dataOrigenes) {
+      setOrigenes(dataOrigenes.getOrigenesResolver);
     }
   }, [searchUser, getContactos, usuarios]);
   // setContacts(getContactos.data.getContactosResolver);
@@ -266,6 +272,27 @@ const NewTask = ({ edit }) => {
                     })}
                   </Select>
                 )}
+              </Form.Item>
+              <Form.Item
+                label="Fuente"
+                name="fuente"
+                rules={[
+                  {
+                    required: true,
+                    message: "",
+                  },
+                ]}
+              >
+                <Select>
+                  {origenes &&
+                    origenes.map((item) => {
+                      return (
+                        <Select.Option key={item.ori_id} value={item.ori_id}>
+                          {item.ori_desc}
+                        </Select.Option>
+                      );
+                    })}
+                </Select>
               </Form.Item>
               {getContactos.data && (
                 <Form.Item label="Contacto" name="con_id">
