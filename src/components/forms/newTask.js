@@ -160,6 +160,7 @@ const NewTask = ({ edit }) => {
       tar_alertanum: Number(v.tar_alertanum),
       tip_id: Number(v.tip_id),
       pri_id: priority,
+      ori_id: v.fuente,
     };
 
     let inputNota = {
