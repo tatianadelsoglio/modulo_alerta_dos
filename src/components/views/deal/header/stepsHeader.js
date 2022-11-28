@@ -32,6 +32,7 @@ const StepsHeader = ({
     updateEtapaxNegocioResolver,
     negId,
     allSteps,
+    idPipeline
   } = useContext(DealContext);
 
   const [hover, setHover] = useState();
@@ -43,7 +44,7 @@ const StepsHeader = ({
     startPolling: startEtaPolling,
     stopPolling: stopEtaPolling,
   } = useQuery(GET_ETAPAS_POR_ID, {
-    variables: { id: 14 },
+    variables: { id: idPipeline },
     // pollInterval: 500,
   });
 
@@ -59,7 +60,7 @@ const StepsHeader = ({
     startPolling: startTiempoPorEtapa,
     stopPolling: stopTiempoPorEtapa,
   } = useQuery(GET_TIEMPO_ETAPA_POR_NEGOCIO, {
-    variables: { idNegocio: 73 },
+    variables: { idNegocio: negId },
   });
 
   useEffect(() => {
