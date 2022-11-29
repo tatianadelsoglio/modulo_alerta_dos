@@ -44,6 +44,8 @@ const StepsHeader = ({
   const e = localStorage.getItem('etapaURL');
   setEtapaURL(e);
 
+  console.log(etapaURL)
+
   const {
     data: etapasPorId,
     startPolling: startEtaPolling,
