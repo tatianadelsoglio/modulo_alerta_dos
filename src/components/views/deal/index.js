@@ -85,6 +85,7 @@ const Deal = () => {
   } = useContext(DealContext);
 
   const { setDrawerName, showDrawer } = useContext(DrawerContext);
+  
 
   //*original
   // const url = window.location.pathname;
