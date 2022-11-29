@@ -166,6 +166,17 @@ const App = () => {
     setNewPipelineState(false);
   };
 
+
+  //Recuperacion de etapa id desde cliente negocio al deal
+  const [etapaId, setEtapaId] = useState(""); 
+  const e = localStorage.getItem('IdEtapa');
+  setEtapaId(e)
+  console.log(etapaId)
+
+
+
+
+
   //* SUBSCRIPTION READ AND POLLS
   const x = usePollAlertSubscription();
   useEffect(() => {
@@ -416,6 +427,8 @@ const App = () => {
           tagsNegId,
           tagsListFilter,
           dealNumber,
+          etapaId, 
+          setEtapaId,
           setDealNumber,
           setTagsListFilter,
           setTagsNegId,

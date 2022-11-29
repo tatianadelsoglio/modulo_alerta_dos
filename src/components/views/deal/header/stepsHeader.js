@@ -32,7 +32,9 @@ const StepsHeader = ({
     updateEtapaxNegocioResolver,
     negId,
     allSteps,
-    idPipeline
+    idPipeline,
+    etapaId, 
+    setEtapaId,
   } = useContext(DealContext);
 
   const [hover, setHover] = useState();
@@ -44,7 +46,7 @@ const StepsHeader = ({
     startPolling: startEtaPolling,
     stopPolling: stopEtaPolling,
   } = useQuery(GET_ETAPAS_POR_ID, {
-    variables: { id: idPipeline },
+    variables: { id: etapaId },  ///ACA VA EL ID DEL EMBUDO
     // pollInterval: 500,
   });
 

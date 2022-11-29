@@ -42,6 +42,7 @@ import TaskBar from "../../uiComponet/taskBar";
 import SharedUsers from "./sharedUsers/sharedUsers";
 import { useRouter } from "../../../hook/useRouter";
 import queryString from "query-string";
+import { GET_ETAPAS_EMBUDOS } from "../../../Graphql/queries/embudos";
 
 const Deal = () => {
   // Copy timeline
@@ -70,6 +71,8 @@ const Deal = () => {
     setDeal,
     deal,
     setEtaId,
+    idPipeline,
+    etaId,
     dealCompetitors,
     dealProducts,
     setDealCompetitors,
@@ -102,15 +105,15 @@ const Deal = () => {
 
   const { data: negocio } = useQuery(GET_NEGOCIO_POR_ID, {
     variables: { idNegocio: idNegocioURL },
-    pollInterval: 2000,
+    // pollInterval: 2000,
   });
   const { data } = useQuery(GET_TIMELINE_POR_NEGOCIO, {
     variables: { idNegocio: idNegocioURL },
-    pollInterval: 2000,
+    // pollInterval: 2000,
   });
   const { data: getHistorial } = useQuery(GET_HISTORIAL_POR_NEGOCIO, {
     variables: { idNegocio: idNegocioURL },
-    pollInterval: 2000,
+    // pollInterval: 2000,
   });
 
   const history = useHistory();
@@ -168,6 +171,12 @@ const Deal = () => {
     return f;
   };
 
+  
+  // const { data:embudosInfo } = useQuery(GET_ETAPAS_EMBUDOS,{
+  //   variables: { eta_id: etaId, pip_id:idPipeline },
+  //   // pollInterval: 2000,
+  // });
+
   // if (loading) return '';
 
   useEffect(() => {
@@ -175,12 +184,17 @@ const Deal = () => {
     //   // Cuando el id del negocio no existe lleva la app a la vista principal.
     //   history.push("/");
     // }
+    // if (embudosInfo){
+    //   const infoEtaId = JSON.parse(embudosInfo.getEtapaPorIdResolver);
+    //   console.log(infoEtaId.eta_id)
+    // }
+
 
     if (negocio) {
       setProducts([]);
       const dataResult = JSON.parse(negocio.getNegocioByIdResolver);
       setStateGonzalo(dataResult.dataNeg);
-
+      console.log(stateGonzalo)
 
 
       setDeal(dataResult.dataNeg);

@@ -17,7 +17,7 @@ import StepsHeader from "./stepsHeader";
 import "./styles.scss";
 import { DrawerContext } from "../../../context/DrawContext";
 import { GET_USUARIO_ASIG } from "../../../../Graphql/queries/usuario";
-import { GET_ETAPAS_EMBUDOS } from "../../../../Graphql/queries/embudos";
+import {  GET_ETAPAS_EMBUDOS } from "../../../../Graphql/queries/embudos";
 import { conversionMonedaBase } from "../../../../utils/conversionMonedaBase";
 import TagsList from "../../../tags/tagsList";
 import TagItem from "../../../tags/tagItem";
@@ -35,6 +35,7 @@ const Header = ({ history, tags, stateGonzalo }) => {
   const {
     deal,
     idPipeline,
+    etaId,
     idUser,
     pipelineName,
     setPathname,
@@ -64,6 +65,13 @@ const Header = ({ history, tags, stateGonzalo }) => {
     usu_asig_id,
   } = deal;
 
+  // console.log(etaId, idPipeline)
+  // const { data:embudosInfo } = useQuery(GET_ETAPAS_EMBUDOS,{
+  //   variables: { eta_id: etaId, pip_id:idPipeline }
+  // });
+
+  
+
   const { data: usuAsig } = useQuery(GET_USUARIO_ASIG, {
     variables: { idUsuAsig: usu_asig_id },
   });
@@ -72,6 +80,11 @@ const Header = ({ history, tags, stateGonzalo }) => {
   useEffect(() => {
     if (!deal) return;
     if (!usuAsig) return;
+    // if (embudosInfo){
+    //   const infoEtaId = JSON.parse(embudosInfo.getEtapaPorIdResolver);
+    //   console.log(infoEtaId)
+    // }
+
   }, [
     deal,
     usuAsig,
