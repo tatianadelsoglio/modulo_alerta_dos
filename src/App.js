@@ -166,6 +166,8 @@ const App = () => {
     setNewPipelineState(false);
   };
 
+  const [etapaURL, setEtapaURL] = useState();
+
   //* SUBSCRIPTION READ AND POLLS
   const x = usePollAlertSubscription();
   useEffect(() => {
@@ -416,6 +418,8 @@ const App = () => {
           tagsNegId,
           tagsListFilter,
           dealNumber,
+          etapaURL, 
+          setEtapaURL,
           setDealNumber,
           setTagsListFilter,
           setTagsNegId,
