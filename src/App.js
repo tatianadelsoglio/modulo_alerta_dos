@@ -211,8 +211,16 @@ const App = () => {
     const equalPosition = parsed.userId;    
     const idUserURL = Number( equalPosition);
 
-
     setIdUser(idUserURL);
+
+    //ETAPA POR URL
+    const url2 = window.location.search;
+    const parsed2 = queryString.parse(url2);   
+    const etapaPosition = parsed2.etaId;    
+    const idEtapaURL = Number( etapaPosition);
+
+
+    setEtapaURL(idEtapaURL);
 
     getGrupo({ variables: { idUsuario: idUserURL } });
 

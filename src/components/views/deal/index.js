@@ -103,15 +103,15 @@ const Deal = () => {
 
   const { data: negocio } = useQuery(GET_NEGOCIO_POR_ID, {
     variables: { idNegocio: idNegocioURL },
-    // pollInterval: 2000,
+    pollInterval: 2000,
   });
   const { data } = useQuery(GET_TIMELINE_POR_NEGOCIO, {
     variables: { idNegocio: idNegocioURL },
-    // pollInterval: 2000,
+    pollInterval: 2000,
   });
   const { data: getHistorial } = useQuery(GET_HISTORIAL_POR_NEGOCIO, {
     variables: { idNegocio: idNegocioURL },
-    // pollInterval: 2000,
+    pollInterval: 2000,
   });
 
   const history = useHistory();

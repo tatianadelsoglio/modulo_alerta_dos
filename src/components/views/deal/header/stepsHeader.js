@@ -41,10 +41,10 @@ const StepsHeader = ({
   const [etapas, setEtapas] = useState([]);
 
   //recuperar etapa desde localstorage
-  const e = localStorage.getItem('etapaURL');
-  setEtapaURL(e);
+  // const e = localStorage.getItem('etapaURL');
+  // setEtapaURL(e);
 
-  console.log(etapaURL)
+  // console.log(etapaURL)
 
   const {
     data: etapasPorId,
