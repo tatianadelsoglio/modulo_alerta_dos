@@ -32,27 +32,36 @@ const StepsHeader = ({
     updateEtapaxNegocioResolver,
     negId,
     allSteps,
-    idPipeline,
-    etapaId, 
-    setEtapaId,
+    etapaURL, 
+    setEtapaURL,
+    idPipeline
   } = useContext(DealContext);
 
   const [hover, setHover] = useState();
   const [days, setDays] = useState([]);
   const [etapas, setEtapas] = useState([]);
 
+  //recuperar etapa desde localstorage
+  // const e = localStorage.getItem('etapaURL');
+  // setEtapaURL(e);
+
+  // console.log(etapaURL)
+
   const {
     data: etapasPorId,
     startPolling: startEtaPolling,
     stopPolling: stopEtaPolling,
   } = useQuery(GET_ETAPAS_POR_ID, {
-    variables: { id: etapaId },  ///ACA VA EL ID DEL EMBUDO
+    variables: { id: idPipeline },
     // pollInterval: 500,
   });
+
+  
 
   useEffect(() => {
     if (etapasPorId) {
       setEtapas(etapasPorId.getEtapaPorIdResolver);
+      console.log(etapasPorId)
     }
   }, [etapasPorId]);
 
@@ -328,7 +337,7 @@ const StepsHeader = ({
       <div className="header_steps_wrapper">
         {etapas &&
           etapas.map((item) => {
-            if (Number(etaId) === Number(item.eta_id)) {
+            if (Number(etapaURL) === Number(item.eta_id)) {
               setEtaNombre(item.eta_nombre);
             }
 

@@ -166,6 +166,7 @@ const App = () => {
     setNewPipelineState(false);
   };
 
+<<<<<<< HEAD
 
   //Recuperacion de etapa id desde cliente negocio al deal
   const [etapaId, setEtapaId] = useState(""); 
@@ -176,6 +177,9 @@ const App = () => {
 
 
 
+=======
+  const [etapaURL, setEtapaURL] = useState();
+>>>>>>> 96092ed4789a9f4e1ed34a597f6403f3766ef34f
 
   //* SUBSCRIPTION READ AND POLLS
   const x = usePollAlertSubscription();
@@ -220,8 +224,16 @@ const App = () => {
     const equalPosition = parsed.userId;    
     const idUserURL = Number( equalPosition);
 
-
     setIdUser(idUserURL);
+
+    //ETAPA POR URL
+    const url2 = window.location.search;
+    const parsed2 = queryString.parse(url2);   
+    const etapaPosition = parsed2.etaId;    
+    const idEtapaURL = Number( etapaPosition);
+
+    console.log(idEtapaURL)
+    setEtapaURL(idEtapaURL);
 
     getGrupo({ variables: { idUsuario: idUserURL } });
 
@@ -427,8 +439,13 @@ const App = () => {
           tagsNegId,
           tagsListFilter,
           dealNumber,
+<<<<<<< HEAD
           etapaId, 
           setEtapaId,
+=======
+          etapaURL, 
+          setEtapaURL,
+>>>>>>> 96092ed4789a9f4e1ed34a597f6403f3766ef34f
           setDealNumber,
           setTagsListFilter,
           setTagsNegId,
