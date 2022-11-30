@@ -33,7 +33,8 @@ const StepsHeader = ({
     negId,
     allSteps,
     etapaURL, 
-    setEtapaURL
+    setEtapaURL,
+    idPipeline
   } = useContext(DealContext);
 
   const [hover, setHover] = useState();
@@ -51,13 +52,16 @@ const StepsHeader = ({
     startPolling: startEtaPolling,
     stopPolling: stopEtaPolling,
   } = useQuery(GET_ETAPAS_POR_ID, {
-    variables: { id: etapaURL },
+    variables: { id: idPipeline },
     // pollInterval: 500,
   });
+
+  
 
   useEffect(() => {
     if (etapasPorId) {
       setEtapas(etapasPorId.getEtapaPorIdResolver);
+      console.log(etapasPorId)
     }
   }, [etapasPorId]);
 
@@ -333,7 +337,7 @@ const StepsHeader = ({
       <div className="header_steps_wrapper">
         {etapas &&
           etapas.map((item) => {
-            if (Number(etaId) === Number(item.eta_id)) {
+            if (Number(etapaURL) === Number(item.eta_id)) {
               setEtaNombre(item.eta_nombre);
             }
 

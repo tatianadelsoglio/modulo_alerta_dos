@@ -219,7 +219,7 @@ const App = () => {
     const etapaPosition = parsed2.etaId;    
     const idEtapaURL = Number( etapaPosition);
 
-
+    console.log(idEtapaURL)
     setEtapaURL(idEtapaURL);
 
     getGrupo({ variables: { idUsuario: idUserURL } });
