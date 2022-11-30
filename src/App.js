@@ -213,14 +213,14 @@ const App = () => {
 
     setIdUser(idUserURL);
 
-    //ETAPA POR URL
-    const url2 = window.location.search;
-    const parsed2 = queryString.parse(url2);   
-    const pipePosition = parsed2.pipId;    
-    const idpipURL = Number( pipePosition);
+    // //ETAPA POR URL
+    // const url2 = window.location.search;
+    // const parsed2 = queryString.parse(url2);   
+    // const pipePosition = parsed2.pipId;    
+    // const idpipURL = Number( pipePosition);
 
-    // console.log(idpipURL)
-    setPipeURL(idpipURL);
+    // console.log("Desde APP: ",idpipURL)
+    // setPipeURL(idpipURL);
 
     getGrupo({ variables: { idUsuario: idUserURL } });
 

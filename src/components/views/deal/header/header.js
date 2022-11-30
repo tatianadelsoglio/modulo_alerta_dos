@@ -21,6 +21,7 @@ import {  GET_EMBUDOS, GET_ETAPAS_EMBUDOS } from "../../../../Graphql/queries/em
 import { conversionMonedaBase } from "../../../../utils/conversionMonedaBase";
 import TagsList from "../../../tags/tagsList";
 import TagItem from "../../../tags/tagItem";
+import queryString from "query-string";
 
 // const menu = (
 //   <Menu>
@@ -53,6 +54,22 @@ const Header = ({ history, tags, stateGonzalo }) => {
   } = useContext(DealContext);
   const { setDrawerName, setDrawerDetail, showDrawer } =
     useContext(DrawerContext);
+
+
+     //PIPE POR URL
+     const url2 = window.location.search;
+     const parsed2 = queryString.parse(url2);   
+     const pipePosition = parsed2.pipId;    
+     const idpipURL = Number( pipePosition);
+ 
+     
+
+     const p =  Number(localStorage.getItem('pipeURL'));
+     //setPipeURL(idpipURL);
+
+     setPipeURL(p)
+
+     console.log("Desde HEADER: ",pipeURL)
 
   const [pipName,setPipName] = useState("");
 
