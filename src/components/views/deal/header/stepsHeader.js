@@ -338,6 +338,7 @@ const StepsHeader = ({
           etapas.map((item) => {
             if (Number(etaId) === Number(item.eta_id)) {
               setEtaNombre(item.eta_nombre);
+              console.log(item.eta_nombre)
             }
 
             return (

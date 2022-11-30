@@ -70,12 +70,12 @@ const Header = ({ history, tags, stateGonzalo }) => {
     usu_asig_id,
   } = deal;
 
-  // console.log("pipe id desde header: ", pipeURL)
+   console.log("pipe id desde header: ", pipeURL)
 
   const { data: dataPipeURL } = useQuery(GET_EMBUDOS, {
     variables: { pip_id: pipeURL },
   });
-  // console.log("dataPipeURL: ", dataPipeURL)
+   console.log("dataPipeURL: ", dataPipeURL)
 
  
 
@@ -193,6 +193,7 @@ const Header = ({ history, tags, stateGonzalo }) => {
                             style={{ fontSize: 20, marginRight: 5 }}
                           />
                           <span>{namePipe[0].pip_nombre}</span>
+                          {console.log(namePipe[0].pip_nombre)}
                   </>
 
                   }
