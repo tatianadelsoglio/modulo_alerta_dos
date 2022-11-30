@@ -166,20 +166,7 @@ const App = () => {
     setNewPipelineState(false);
   };
 
-<<<<<<< HEAD
-
-  //Recuperacion de etapa id desde cliente negocio al deal
-  const [etapaId, setEtapaId] = useState(""); 
-  const e = localStorage.getItem('IdEtapa');
-  setEtapaId(e)
-  console.log(etapaId)
-
-
-
-
-=======
   const [etapaURL, setEtapaURL] = useState();
->>>>>>> 96092ed4789a9f4e1ed34a597f6403f3766ef34f
 
   //* SUBSCRIPTION READ AND POLLS
   const x = usePollAlertSubscription();
@@ -439,13 +426,8 @@ const App = () => {
           tagsNegId,
           tagsListFilter,
           dealNumber,
-<<<<<<< HEAD
-          etapaId, 
-          setEtapaId,
-=======
           etapaURL, 
           setEtapaURL,
->>>>>>> 96092ed4789a9f4e1ed34a597f6403f3766ef34f
           setDealNumber,
           setTagsListFilter,
           setTagsNegId,
