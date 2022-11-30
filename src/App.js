@@ -166,7 +166,7 @@ const App = () => {
     setNewPipelineState(false);
   };
 
-  const [etapaURL, setEtapaURL] = useState();
+  const [pipeURL, setPipeURL] = useState();
 
   //* SUBSCRIPTION READ AND POLLS
   const x = usePollAlertSubscription();
@@ -216,11 +216,11 @@ const App = () => {
     //ETAPA POR URL
     const url2 = window.location.search;
     const parsed2 = queryString.parse(url2);   
-    const etapaPosition = parsed2.etaId;    
-    const idEtapaURL = Number( etapaPosition);
+    const pipePosition = parsed2.pipId;    
+    const idpipURL = Number( pipePosition);
 
-    console.log(idEtapaURL)
-    setEtapaURL(idEtapaURL);
+    console.log(idpipURL)
+    setPipeURL(idpipURL);
 
     getGrupo({ variables: { idUsuario: idUserURL } });
 
@@ -426,8 +426,8 @@ const App = () => {
           tagsNegId,
           tagsListFilter,
           dealNumber,
-          etapaURL, 
-          setEtapaURL,
+          pipeURL, 
+          setPipeURL,
           setDealNumber,
           setTagsListFilter,
           setTagsNegId,

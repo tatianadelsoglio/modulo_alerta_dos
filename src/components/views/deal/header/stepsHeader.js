@@ -32,8 +32,8 @@ const StepsHeader = ({
     updateEtapaxNegocioResolver,
     negId,
     allSteps,
-    etapaURL, 
-    setEtapaURL,
+    pipeURL, 
+    setPipeURL,
     idPipeline
   } = useContext(DealContext);
 
@@ -42,17 +42,17 @@ const StepsHeader = ({
   const [etapas, setEtapas] = useState([]);
 
   //recuperar etapa desde localstorage
-  // const e = localStorage.getItem('etapaURL');
-  // setEtapaURL(e);
+  // const e = localStorage.getItem('pipeURL');
+  // setPipeURL(e);
 
-  // console.log(etapaURL)
+  // console.log(pipeURL)
 
   const {
     data: etapasPorId,
     startPolling: startEtaPolling,
     stopPolling: stopEtaPolling,
   } = useQuery(GET_ETAPAS_POR_ID, {
-    variables: { id: idPipeline },
+    variables: { id: pipeURL },
     // pollInterval: 500,
   });
 
@@ -337,7 +337,7 @@ const StepsHeader = ({
       <div className="header_steps_wrapper">
         {etapas &&
           etapas.map((item) => {
-            if (Number(etapaURL) === Number(item.eta_id)) {
+            if (Number(etaId) === Number(item.eta_id)) {
               setEtaNombre(item.eta_nombre);
             }
 
