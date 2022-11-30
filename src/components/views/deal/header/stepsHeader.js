@@ -61,7 +61,6 @@ const StepsHeader = ({
   useEffect(() => {
     if (etapasPorId) {
       setEtapas(etapasPorId.getEtapaPorIdResolver);
-      console.log(etapasPorId)
     }
   }, [etapasPorId]);
 

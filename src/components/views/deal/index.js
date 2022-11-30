@@ -195,7 +195,7 @@ const Deal = () => {
       setProducts([]);
       const dataResult = JSON.parse(negocio.getNegocioByIdResolver);
       setStateGonzalo(dataResult.dataNeg);
-      console.log(stateGonzalo)
+      // console.log(stateGonzalo)
 
 
       setDeal(dataResult.dataNeg);

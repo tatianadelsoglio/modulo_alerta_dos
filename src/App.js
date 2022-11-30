@@ -219,7 +219,7 @@ const App = () => {
     const pipePosition = parsed2.pipId;    
     const idpipURL = Number( pipePosition);
 
-    console.log(idpipURL)
+    // console.log(idpipURL)
     setPipeURL(idpipURL);
 
     getGrupo({ variables: { idUsuario: idUserURL } });

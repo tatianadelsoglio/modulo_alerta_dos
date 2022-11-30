@@ -17,7 +17,7 @@ import StepsHeader from "./stepsHeader";
 import "./styles.scss";
 import { DrawerContext } from "../../../context/DrawContext";
 import { GET_USUARIO_ASIG } from "../../../../Graphql/queries/usuario";
-import {  GET_ETAPAS_EMBUDOS } from "../../../../Graphql/queries/embudos";
+import {  GET_EMBUDOS, GET_ETAPAS_EMBUDOS } from "../../../../Graphql/queries/embudos";
 import { conversionMonedaBase } from "../../../../utils/conversionMonedaBase";
 import TagsList from "../../../tags/tagsList";
 import TagItem from "../../../tags/tagItem";
@@ -48,10 +48,15 @@ const Header = ({ history, tags, stateGonzalo }) => {
     autorizado,
     setTagsList,
     etapasFinal,
+    pipeURL, 
+    setPipeURL
   } = useContext(DealContext);
   const { setDrawerName, setDrawerDetail, showDrawer } =
     useContext(DrawerContext);
 
+  const [pipName,setPipName] = useState("");
+
+  const [namePipe, setNamePipe] = useState("");
   const [etaNombre, setEtaNombre] = useState("");
   const {
     neg_asunto,
@@ -65,12 +70,14 @@ const Header = ({ history, tags, stateGonzalo }) => {
     usu_asig_id,
   } = deal;
 
-  // console.log(etaId, idPipeline)
-  // const { data:embudosInfo } = useQuery(GET_ETAPAS_EMBUDOS,{
-  //   variables: { eta_id: etaId, pip_id:idPipeline }
-  // });
+  // console.log("pipe id desde header: ", pipeURL)
 
-  
+  const { data: dataPipeURL } = useQuery(GET_EMBUDOS, {
+    variables: { pip_id: pipeURL },
+  });
+  // console.log("dataPipeURL: ", dataPipeURL)
+
+ 
 
   const { data: usuAsig } = useQuery(GET_USUARIO_ASIG, {
     variables: { idUsuAsig: usu_asig_id },
@@ -80,23 +87,22 @@ const Header = ({ history, tags, stateGonzalo }) => {
   useEffect(() => {
     if (!deal) return;
     if (!usuAsig) return;
-    // if (embudosInfo){
-    //   const infoEtaId = JSON.parse(embudosInfo.getEtapaPorIdResolver);
-    //   console.log(infoEtaId)
-    // }
+    if (dataPipeURL){
+      setPipName(dataPipeURL.getPipelinesResolver);
+    }
 
   }, [
-    deal,
-    usuAsig,
-    idPipeline,
-    monConfig,
-    valorMonedaBase,
-    cotizacionDolar,
-    cotizacionReal,
-    monIsoBase,
-    idMonConfig,
-    neg_valor,
+     deal,
+     usuAsig,
+    dataPipeURL,
   ]);
+
+
+  useEffect(() => {
+    if (pipName){
+      setNamePipe(pipName.filter((pip) => (pip.pip_id == pipeURL)))
+    }
+  }, [pipName]);
 
   const onClickGanado = () => {
     // getEtapa()
@@ -181,11 +187,16 @@ const Header = ({ history, tags, stateGonzalo }) => {
                   </div>
                 )}
                 <div className="deal_pipe">
-                  <FunnelPlotOutlined
-                    style={{ fontSize: 20, marginRight: 5 }}
-                  />
+                  {namePipe &&
+                  <>
+                          <FunnelPlotOutlined
+                            style={{ fontSize: 20, marginRight: 5 }}
+                          />
+                          <span>{namePipe[0].pip_nombre}</span>
+                  </>
 
-                  <span>{pipelineName}</span>
+                  }
+                  
                 </div>
               </div>
             </div>
