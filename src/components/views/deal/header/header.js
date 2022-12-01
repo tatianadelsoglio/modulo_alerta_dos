@@ -57,19 +57,17 @@ const Header = ({ history, tags, stateGonzalo }) => {
 
 
      //PIPE POR URL
-     const url2 = window.location.search;
-     const parsed2 = queryString.parse(url2);   
-     const pipePosition = parsed2.pipId;    
-     const idpipURL = Number( pipePosition);
- 
+    //  const url2 = window.location.search;
+    //  const parsed2 = queryString.parse(url2);   
+    //  const pipePosition = parsed2.pipId;    
+    //  const idpipURL = Number( pipePosition);
      
+    //  setPipeURL(idpipURL);
 
-     const p =  Number(localStorage.getItem('pipeURL'));
-     //setPipeURL(idpipURL);
+    const p =  Number(localStorage.getItem('pipeURL'));
+    setPipeURL(p)
 
-     setPipeURL(p)
-
-     console.log("Desde HEADER: ",pipeURL)
+    //  console.log("Desde HEADER: ",pipeURL)
 
   const [pipName,setPipName] = useState("");
 
@@ -87,12 +85,12 @@ const Header = ({ history, tags, stateGonzalo }) => {
     usu_asig_id,
   } = deal;
 
-   console.log("pipe id desde header: ", pipeURL)
+  //  console.log("pipe id desde header: ", pipeURL)
 
   const { data: dataPipeURL } = useQuery(GET_EMBUDOS, {
     variables: { pip_id: pipeURL },
   });
-   console.log("dataPipeURL: ", dataPipeURL)
+  //  console.log("dataPipeURL: ", dataPipeURL)
 
  
 
@@ -210,7 +208,7 @@ const Header = ({ history, tags, stateGonzalo }) => {
                             style={{ fontSize: 20, marginRight: 5 }}
                           />
                           <span>{namePipe[0].pip_nombre}</span>
-                          {console.log(namePipe[0].pip_nombre)}
+                          {/* {console.log(namePipe[0].pip_nombre)} */}
                   </>
 
                   }

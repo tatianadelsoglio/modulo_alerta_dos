@@ -41,11 +41,6 @@ const StepsHeader = ({
   const [days, setDays] = useState([]);
   const [etapas, setEtapas] = useState([]);
 
-  //recuperar etapa desde localstorage
-  // const e = localStorage.getItem('pipeURL');
-  // setPipeURL(e);
-
-  // console.log(pipeURL)
 
   const {
     data: etapasPorId,
@@ -338,7 +333,7 @@ const StepsHeader = ({
           etapas.map((item) => {
             if (Number(etaId) === Number(item.eta_id)) {
               setEtaNombre(item.eta_nombre);
-              console.log(item.eta_nombre)
+              // console.log(item.eta_nombre)
             }
 
             return (
