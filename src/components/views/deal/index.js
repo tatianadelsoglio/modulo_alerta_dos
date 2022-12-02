@@ -132,6 +132,8 @@ const Deal = () => {
         return item.not_anclado === 1;
       });
 
+      
+
       setAnchorNotes(anchorNote);
 
       setTasks(JSON.parse(data.getTimeLineByNegocioResolver).dataTar);
@@ -144,6 +146,7 @@ const Deal = () => {
       });
 
       setAnchorTasks(anchorTask);
+
 
       setUploads(JSON.parse(data.getTimeLineByNegocioResolver).dataUp);
       const anchorUploads = JSON.parse(

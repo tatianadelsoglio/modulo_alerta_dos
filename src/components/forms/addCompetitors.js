@@ -392,7 +392,6 @@ const AddCompetitors = () => {
               </Row>
             </div>
             <div className="layout-footer">
-              {pathname === "/negocio" ? (
                 <Form.Item>
                   <Row gutter={[8, 8]}>
                     <Col xs={12}>
@@ -407,22 +406,6 @@ const AddCompetitors = () => {
                     </Col>
                   </Row>
                 </Form.Item>
-              ) : (
-                <Form.Item>
-                  <Row gutter={[8, 8]}>
-                    <Col xs={24}>
-                      <Button
-                        onClick={onChildrenDrawerClose}
-                        type="default"
-                        block
-                        style={{ marginBottom: "100px", position: "relative" }}
-                      >
-                        Volver
-                      </Button>
-                    </Col>
-                  </Row>
-                </Form.Item>
-              )}
             </div>
           </div>
         </Form>

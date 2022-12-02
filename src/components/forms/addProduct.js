@@ -31,9 +31,10 @@ const AddProduct = () => {
   const Option = Select.Option;
   const [form] = Form.useForm();
   const [searchProduct, setSearchProduct] = useState("");
+  
   const [productList, setProductList] = useState([]);
-
   const [prodIdList, setProdIdList] = useState([]);
+
   const { onChildrenDrawerClose, onClose } = useContext(DrawerContext);
 
   const {
@@ -47,6 +48,7 @@ const AddProduct = () => {
     totalProducts,
     setTotalProducts,
     dealProducts,
+    setDealProducts,
   } = useContext(DealContext);
   const selectProducto = useRef();
 
@@ -208,6 +210,7 @@ const AddProduct = () => {
     form.resetFields();
     setSearchProduct("");
   };
+
   // Componente Tabla Ant
   const columns = [
     {
@@ -315,7 +318,6 @@ const AddProduct = () => {
           idNegocio: Number(negId),
         },
       });
-
       if (products.length >= 1) {
         description =
           products.length > 1
@@ -463,11 +465,17 @@ const AddProduct = () => {
             </Row>
           </div>
           <div className="layout-footer">
-            {pathname === "/negocio" ? (
               <Fragment>
                 <Row gutter={[8, 8]}>
                   <Col xs={12}>
-                    <Button onClick={() => onClose()} type="default" block>
+                    <Button
+                      onClick={() => {
+                        setDealProducts([]);
+                        onClose();
+                      }}
+                      type="default"
+                      block
+                    >
                       Cancelar
                     </Button>
                   </Col>
@@ -480,24 +488,6 @@ const AddProduct = () => {
                   </Col>
                 </Row>
               </Fragment>
-            ) : (
-              <Fragment>
-                <Form.Item>
-                  <Row gutter={[8, 8]}>
-                    <Col xs={24}>
-                      <Button
-                        onClick={onChildrenDrawerClose}
-                        type="default"
-                        block
-                        style={{ marginBottom: "100px", position: "relative" }}
-                      >
-                        Volver
-                      </Button>
-                    </Col>
-                  </Row>
-                </Form.Item>
-              </Fragment>
-            )}
           </div>
         </div>
       </ConfigProvider>
