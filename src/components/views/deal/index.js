@@ -101,9 +101,9 @@ const Deal = () => {
   const lastSlashPosition = parsed.negId;
   const idNegocioURL = Number(lastSlashPosition);
   //setIdNegocioURL(Number(lastSlashPosition));
-  //setNegId(idNegocioURL);
+  setNegId(idNegocioURL);
 
-  setNegId(138)//para probar desde local
+  //setNegId(138)//para probar desde local
 
   const { data: negocio } = useQuery(GET_NEGOCIO_POR_ID, {
     variables: { idNegocio: idNegocioURL },

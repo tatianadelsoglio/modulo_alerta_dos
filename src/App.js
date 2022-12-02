@@ -211,9 +211,9 @@ const App = () => {
     const equalPosition = parsed.userId;    
     const idUserURL = Number( equalPosition);
 
-    //setIdUser(idUserURL);
+    setIdUser(idUserURL);
 
-    setIdUser(1)//para probar desde local
+    //setIdUser(1)//para probar desde local
 
     // //ETAPA POR URL
     // const url2 = window.location.search;

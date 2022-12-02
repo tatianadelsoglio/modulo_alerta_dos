@@ -65,8 +65,8 @@ const Header = ({ history, tags, stateGonzalo }) => {
     //  setPipeURL(idpipURL);
 
     const p =  Number(localStorage.getItem('pipeURL'));
-    //setPipeURL(p)
-    setPipeURL(124) // para probar desde local
+    setPipeURL(p)
+    //setPipeURL(124) // para probar desde local
     //  console.log("Desde HEADER: ",pipeURL)
 
   const [pipName,setPipName] = useState("");
