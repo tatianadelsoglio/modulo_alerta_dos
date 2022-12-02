@@ -65,8 +65,8 @@ const Header = ({ history, tags, stateGonzalo }) => {
     //  setPipeURL(idpipURL);
 
     const p =  Number(localStorage.getItem('pipeURL'));
-    setPipeURL(p)
-
+    //setPipeURL(p)
+    setPipeURL(124) // para probar desde local
     //  console.log("Desde HEADER: ",pipeURL)
 
   const [pipName,setPipName] = useState("");
@@ -89,6 +89,7 @@ const Header = ({ history, tags, stateGonzalo }) => {
 
   const { data: dataPipeURL } = useQuery(GET_EMBUDOS, {
     variables: { pip_id: pipeURL },
+    pollInterval:2000
   });
   //  console.log("dataPipeURL: ", dataPipeURL)
 

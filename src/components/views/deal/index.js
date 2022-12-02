@@ -101,22 +101,24 @@ const Deal = () => {
   const lastSlashPosition = parsed.negId;
   const idNegocioURL = Number(lastSlashPosition);
   //setIdNegocioURL(Number(lastSlashPosition));
-  setNegId(idNegocioURL);
+  //setNegId(idNegocioURL);
 
+  setNegId(138)//para probar desde local
 
   const { data: negocio } = useQuery(GET_NEGOCIO_POR_ID, {
     variables: { idNegocio: idNegocioURL },
-    // pollInterval: 2000,
+    pollInterval: 2000,
   });
   const { data } = useQuery(GET_TIMELINE_POR_NEGOCIO, {
     variables: { idNegocio: idNegocioURL },
-    // pollInterval: 2000,
+    pollInterval: 2000,
   });
   const { data: getHistorial } = useQuery(GET_HISTORIAL_POR_NEGOCIO, {
     variables: { idNegocio: idNegocioURL },
-    // pollInterval: 2000,
+    pollInterval: 2000,
   });
 
+  //console.log(historial)
   const history = useHistory();
 
   useEffect(() => {
@@ -172,23 +174,14 @@ const Deal = () => {
     return f;
   };
 
-  
-  // const { data:embudosInfo } = useQuery(GET_ETAPAS_EMBUDOS,{
-  //   variables: { eta_id: etaId, pip_id:idPipeline },
-  //   // pollInterval: 2000,
-  // });
 
-  // if (loading) return '';
 
   useEffect(() => {
     // if (!negId) {
     //   // Cuando el id del negocio no existe lleva la app a la vista principal.
     //   history.push("/");
     // }
-    // if (embudosInfo){
-    //   const infoEtaId = JSON.parse(embudosInfo.getEtapaPorIdResolver);
-    //   console.log(infoEtaId.eta_id)
-    // }
+   
 
 
     if (negocio) {

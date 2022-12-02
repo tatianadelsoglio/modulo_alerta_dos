@@ -28,6 +28,7 @@ const StepsHeader = ({
     setDeal,
     setEtaId,
     etaId,
+    etaPreviaId,
     setEtaPreviaId,
     updateEtapaxNegocioResolver,
     negId,
@@ -48,7 +49,7 @@ const StepsHeader = ({
     stopPolling: stopEtaPolling,
   } = useQuery(GET_ETAPAS_POR_ID, {
     variables: { id: pipeURL },
-    // pollInterval: 500,
+    //pollInterval: 500,
   });
 
   
@@ -66,6 +67,7 @@ const StepsHeader = ({
     stopPolling: stopTiempoPorEtapa,
   } = useQuery(GET_TIEMPO_ETAPA_POR_NEGOCIO, {
     variables: { idNegocio: negId },
+    pollInterval:2000
   });
 
   useEffect(() => {
@@ -112,7 +114,7 @@ const StepsHeader = ({
       return;
     }
 
-    let etaNombre = allSteps.map((etapa) => {
+    let etaNombre = etapas.map((etapa) => {
       if (Number(item) === Number(etapa.eta_id)) {
         return etapa.eta_nombre;
       }
@@ -141,21 +143,36 @@ const StepsHeader = ({
       // startTiempoPorEtapa(500);
     });
     // .catch((error) =>
+
+
     //setea  los cambios en el Historial
     setEtaId(Number(item));
-    setEtaPreviaId(Number(etaIdNegocio));
+    if(etaPreviaId === null){
+      setEtaPreviaId(Number(item));
+    }else{
+
+      setEtaPreviaId(Number(etaIdNegocio));
+    }
+
+    
 
     const prev = Number(etaIdNegocio);
     const et = Number(item);
 
-    //se busca el nombre de la etapa previa en el array.
-
-    const etaPrevia = allSteps.filter((etapa) => {
+    
+    //*ORIGINAL USA allSteps
+    // const etaPrevia = allSteps.filter((etapa) => {
+      //   return Number(etapa.eta_id) === prev;
+      // })[0].eta_nombre;
+      
+      //se busca el nombre de la etapa previa en el array.
+      
+    const etaPrevia = etapas.filter((etapa) => {
       return Number(etapa.eta_id) === prev;
     })[0].eta_nombre;
 
     // Se busca el nombre de la etapa en el array
-    const etapa = allSteps.filter((etapa) => {
+    const etapa = etapas.filter((etapa) => {
       return Number(etapa.eta_id) === et;
     })[0].eta_nombre;
 
