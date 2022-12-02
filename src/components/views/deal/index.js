@@ -389,7 +389,9 @@ const Deal = () => {
                     block
                     disabled={deal.usu_asig_id !== idUser && idUser !== 1}
                   >
-                    Productos ({`${dealProducts.length}`})
+                    <span style={{fontSize:"13px"}}>
+                      Productos ({`${dealProducts.length}`})
+                    </span>
                   </Button>
                 </Tooltip>
               </Col>
@@ -404,8 +406,9 @@ const Deal = () => {
                     block
                     disabled={deal.usu_asig_id !== idUser && idUser !== 1}
                   >
-                    {" "}
-                    Competidores ({`${dealCompetitors.length}`})
+                    <span style={{marginLeft:"-10px", fontSize:"13px"}}>
+                      Competidores ({`${dealCompetitors.length}`})
+                    </span>
                   </Button>
                 </Tooltip>
               </Col>
