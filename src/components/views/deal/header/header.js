@@ -282,7 +282,7 @@ const Header = ({ history, tags, stateGonzalo }) => {
                   </div>
                 )}
                 {/* {history.location.state && ( */}
-                  <div className="filtros">
+                  {/* <div className="filtros">
                     <Button
                       type="ghost"
                       onClick={goToBack}
@@ -290,7 +290,7 @@ const Header = ({ history, tags, stateGonzalo }) => {
                     >
                       <LeftOutlined /> <span>Volver</span>
                     </Button>
-                  </div>
+                  </div> */}
                 {/* )} */}
               </div>
 
